@@ -1,0 +1,12 @@
+# turbo
+.turbo
+
+# builds & dist
+build
+dist
+release
+
+# cache
+.cache
+
+node_modules
