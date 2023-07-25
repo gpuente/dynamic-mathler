@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { sum } from 'mathler';
+
+const sum = (a: number, b: number) => a + b;
 
 export default function App() {
   return (
