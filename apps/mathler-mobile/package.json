@@ -1,0 +1,30 @@
+{
+  "name": "mathler-mobile",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "clean:cache": "rimraf .turbo .cache",
+    "clean:node_modules": "rimraf node_modules",
+    "clean:full": "npm run clean:cache && npm run clean:node_modules"
+  },
+  "dependencies": {
+    "expo": "~48.0.18",
+    "expo-dev-client": "~2.2.1",
+    "expo-status-bar": "~1.4.4",
+    "react": "18.2.0",
+    "react-native": "0.71.8",
+    "mathler": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@types/react": "~18.0.14",
+    "typescript": "^4.9.4",
+    "eslint-config-custom": "*",
+    "tsconfig": "*"
+  },
+  "private": true
+}

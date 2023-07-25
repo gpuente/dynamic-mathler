@@ -15,7 +15,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx}\"",
     "test": "turbo run test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "turbo run build"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
