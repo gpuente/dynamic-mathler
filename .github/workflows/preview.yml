@@ -39,6 +39,6 @@ jobs:
 
       - name: Create preview
         uses: expo/expo-github-action/preview@v8
-        working-directory: ./apps/mathler-mobile
         with:
+          working-directory: ./apps/mathler-mobile
           command: eas build -p android --profile preview --non-interactive
