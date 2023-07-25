@@ -5,7 +5,7 @@ import { sum } from 'mathler';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text>Open up App.tsx to start working on your app!!!</Text>
       <Text testID="result">{sum(1, 2)}</Text>
       <StatusBar style="auto" />
     </View>
