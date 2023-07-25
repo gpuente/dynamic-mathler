@@ -46,7 +46,10 @@ try {
 } catch {}
 
 const getStories = () => {
-  return { './src/Button.stories.tsx': require('../src/Button.stories.tsx') };
+  return {
+    './src/Button.stories.tsx': require('../src/Button.stories.tsx'),
+    './src/components/TileInput/TileInput.stories.tsx': require('../src/components/TileInput/TileInput.stories.tsx'),
+  };
 };
 
 configure(getStories, module, false);
