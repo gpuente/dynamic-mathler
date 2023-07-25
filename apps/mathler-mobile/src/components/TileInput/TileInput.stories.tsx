@@ -11,7 +11,7 @@ const TileInputMeta = {
     disabled: { type: 'boolean' },
     status: {
       control: 'select',
-      options: ['idle', 'active', 'error', 'warning', 'success'],
+      options: ['idle', 'active', 'error', 'warning', 'success', 'empty'],
       defaultValue: 'idle',
     },
   },
