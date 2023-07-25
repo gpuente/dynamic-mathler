@@ -6,5 +6,6 @@ module.exports = {
     'no-console': 'off',
     'lines-between-class-members': 'off',
     'no-underscore-dangle': 'off',
+    'class-methods-use-this': 'off',
   },
 };
