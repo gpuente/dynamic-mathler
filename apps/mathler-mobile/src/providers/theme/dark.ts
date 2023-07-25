@@ -11,6 +11,7 @@ export const darkTheme: ThemeValue = {
         error: '#ff6680',
         warning: '#fdfd96',
         success: '#b8d8be',
+        empty: '#bbd9d8',
       },
       backgroundShadow: {
         idle: '#b7d5d6',
@@ -18,8 +19,12 @@ export const darkTheme: ThemeValue = {
         error: '#cb527b',
         warning: '#e0e08a',
         success: '#a3c0ad',
+        empty: '#bbd9d8',
       },
       text: '#000000',
+    },
+    grid: {
+      background: '#cae1db',
     },
   },
 };

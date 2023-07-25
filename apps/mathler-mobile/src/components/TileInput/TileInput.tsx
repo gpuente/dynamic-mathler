@@ -4,7 +4,7 @@ import { useTheme } from '../../providers/theme';
 
 export interface TileInputProps {
   value?: string;
-  status?: 'idle' | 'active' | 'error' | 'warning' | 'success';
+  status?: 'idle' | 'active' | 'error' | 'warning' | 'success' | 'empty';
   onPress: () => void;
   disabled?: boolean;
 }

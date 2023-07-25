@@ -14,6 +14,7 @@ export interface ThemeValue {
         error: string;
         warning: string;
         success: string;
+        empty: string;
       };
       backgroundShadow: {
         idle: string;
@@ -21,8 +22,12 @@ export interface ThemeValue {
         error: string;
         warning: string;
         success: string;
+        empty: string;
       };
       text: string;
+    };
+    grid: {
+      background: string;
     };
   };
 }
