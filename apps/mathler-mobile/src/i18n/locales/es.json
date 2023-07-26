@@ -30,5 +30,9 @@
     "p4": "Reglas adicionales:",
     "p5": " - Los números y operadores pueden aparecer varias veces.\n - Calcula / o * antes que - o + (orden de operaciones).\n - Se aceptan soluciones conmutativas, por ejemplo, 20+7+3 y 3+7+20.\n - Las soluciones conmutativas se reorganizarán automáticamente para mostrar la solución exacta.",
     "p6": "Un ejemplo de un juego ganador para el resultado 7"
+  },
+  "debugModal": {
+    "title": "La expresión escondida es: {{expression}}",
+    "close": "❌ Cerrar modal"
   }
 }

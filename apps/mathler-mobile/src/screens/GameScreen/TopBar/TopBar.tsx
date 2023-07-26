@@ -1,19 +1,30 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from 'react-native';
 
 import { useTheme } from '../../../providers/theme';
+import { Theme } from '../../../providers/theme/types';
+import { useSecretPressTrigger } from '../../../hooks/useSecretPressTrigger';
 
 export interface TopBarProps {
   result: number;
   onInfoPress?: () => void;
+  onSecretPress?: () => void;
+  restartGame?: () => void;
 }
 
 export const TopBar: React.FC<TopBarProps> = (props) => {
-  const { result, onInfoPress } = props;
+  const { result, onInfoPress, onSecretPress, restartGame } = props;
 
   const { i18n, t } = useTranslation();
-  const { palette } = useTheme();
+  const { palette, theme, toggleTheme } = useTheme();
+  const secretTrigger = useSecretPressTrigger(onSecretPress);
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en');
@@ -24,13 +35,26 @@ export const TopBar: React.FC<TopBarProps> = (props) => {
     backgroundColor: palette.button.primary,
   };
 
+  const titleStyles = {
+    ...styles.title,
+    color: palette.text,
+  };
+
   return (
     <View>
       <View style={styles.container}>
+        <TouchableOpacity onPress={toggleTheme}>
+          <Text style={styles.iconButton}>
+            {theme === Theme.Light ? '🌑' : '☀️'}
+          </Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={onInfoPress}>
           <Text style={styles.iconButton}>ℹ️</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={toggleLanguage}>
+        <TouchableOpacity onPress={restartGame}>
+          <Text style={styles.iconButton}>🔄</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={toggleLanguage} style={{ marginLeft: 10 }}>
           <View style={langButtonStyles}>
             <Text style={styles.langText}>🌎 {i18n.language}</Text>
           </View>
@@ -38,7 +62,9 @@ export const TopBar: React.FC<TopBarProps> = (props) => {
       </View>
 
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>{t('header.title', { result })}</Text>
+        <TouchableWithoutFeedback onPress={secretTrigger}>
+          <Text style={titleStyles}>{t('header.title', { result })}</Text>
+        </TouchableWithoutFeedback>
       </View>
     </View>
   );
@@ -71,6 +97,6 @@ const styles = StyleSheet.create({
   iconButton: {
     fontSize: 26,
     paddingVertical: 10,
-    paddingHorizontal: 16,
+    paddingHorizontal: 10,
   },
 });

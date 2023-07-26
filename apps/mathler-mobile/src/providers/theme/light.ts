@@ -4,6 +4,8 @@ export const lightTheme: ThemeValue = {
   theme: Theme.Light,
   palette: {
     primary: 'yellow',
+    background: '#ffffff',
+    text: '#000000',
     modal: {
       background: '#ffffff',
     },

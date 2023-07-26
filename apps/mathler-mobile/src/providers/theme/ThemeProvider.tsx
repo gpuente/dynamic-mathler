@@ -6,12 +6,14 @@ import { Theme, ThemeValue } from './types';
 
 export interface ThemeContextValue extends ThemeValue {
   setTheme: (theme: Theme) => void;
+  toggleTheme: () => void;
 }
 
 /* eslint-disable @typescript-eslint/no-empty-function */
 export const ThemeContext = createContext<ThemeContextValue>({
   ...lightTheme,
   setTheme: () => {},
+  toggleTheme: () => {},
 });
 
 export const useTheme = (): ThemeContextValue => {
@@ -28,6 +30,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     () => ({
       ...(theme === Theme.Light ? lightTheme : darkTheme),
       setTheme,
+      toggleTheme: () =>
+        theme === Theme.Light ? setTheme(Theme.Dark) : setTheme(Theme.Light),
     }),
     [theme]
   );
