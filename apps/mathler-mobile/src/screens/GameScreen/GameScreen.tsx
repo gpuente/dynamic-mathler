@@ -30,7 +30,7 @@ export const GameScreen: React.FC = () => {
   const [attemptValues, setAttemptValues] = useState(emptyRowValues);
   const [activeRow, setActiveRow] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [showCongratsModal, setShowCongratsModal] = useState(true);
+  const [showCongratsModal, setShowCongratsModal] = useState(false);
   const [totalAttempts, setTotalAttempts] = useState(0);
 
   const onInput = (value: string) => {
@@ -109,6 +109,8 @@ export const GameScreen: React.FC = () => {
   const incompleteRows = useMemo(() => {
     const rowsLeft = MAX_ATTEMPTS - (activeRow + 1);
 
+    if (rowsLeft < 0) return null;
+
     return (
       <>
         {[...Array(rowsLeft)].map((_, index) => (
@@ -128,11 +130,13 @@ export const GameScreen: React.FC = () => {
           <View style={styles.gridContainer}>
             <TileGrid style={styles.grid}>
               {completeRows}
-              <ActiveRow
-                values={attemptValues}
-                activeIndex={activeIndex}
-                onPress={(index) => setActiveIndex(index)}
-              />
+              {activeRow < MAX_ATTEMPTS && (
+                <ActiveRow
+                  values={attemptValues}
+                  activeIndex={activeIndex}
+                  onPress={(index) => setActiveIndex(index)}
+                />
+              )}
               {incompleteRows}
             </TileGrid>
           </View>

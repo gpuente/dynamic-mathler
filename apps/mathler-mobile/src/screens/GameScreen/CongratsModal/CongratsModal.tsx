@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 import { useTranslation } from 'react-i18next';
+import ConfettiCannon from 'react-native-confetti-cannon';
 
 import { useTheme } from '../../../providers/theme';
 
@@ -42,6 +43,7 @@ export const CongratsModal: React.FC<CongratsModalProps> = (props) => {
           </TouchableOpacity>
         </View>
       </View>
+      <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} />
     </Modal>
   );
 };
