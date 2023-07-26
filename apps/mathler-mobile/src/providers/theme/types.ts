@@ -7,6 +7,9 @@ export interface ThemeValue {
   theme: Theme;
   palette: {
     primary: string;
+    button: {
+      primary: string;
+    };
     tile: {
       background: {
         idle: string;

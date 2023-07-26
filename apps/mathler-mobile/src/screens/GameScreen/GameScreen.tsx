@@ -2,10 +2,13 @@
 import React, { useState, useMemo } from 'react';
 import { Mathler } from 'mathler-core';
 import Toast from 'react-native-toast-message';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, SafeAreaView, View, StyleSheet } from 'react-native';
 
+import { TopBar } from './TopBar';
 import { ActiveRow } from './ActiveRow';
 import { CompleteRow } from './CompleteRow';
+import { useTranslateError } from '../../hooks';
 import { IncompleteRow } from './IncompleteRow';
 import { Keyboard, TileGrid } from '../../components';
 import { charStatusToTileStatus } from '../../utils';
@@ -20,6 +23,8 @@ const mathler = new Mathler({
 });
 
 export const GameScreen: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const translateError = useTranslateError();
   const [attemptValues, setAttemptValues] = useState(emptyRowValues);
 
   const [activeRow, setActiveRow] = useState(0);
@@ -36,6 +41,7 @@ export const GameScreen: React.FC = () => {
   };
 
   const onDelete = () => {
+    i18n.changeLanguage('es');
     const newValues = [...attemptValues];
     newValues[activeIndex] = '';
     setAttemptValues(newValues);
@@ -58,8 +64,8 @@ export const GameScreen: React.FC = () => {
         type: 'error',
         visibilityTime: 6000,
         topOffset: 60,
-        text1: 'Ups!, something went wrong 😱',
-        text2: (error as Error).message,
+        text1: t('errors.ups'),
+        text2: translateError(error as Error),
       });
     }
   };
@@ -97,7 +103,9 @@ export const GameScreen: React.FC = () => {
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
-        <View style={{ backgroundColor: 'yellow', height: 40 }} />
+        <View style={styles.headerSection}>
+          <TopBar />
+        </View>
         <View style={styles.gridSection}>
           <View style={styles.gridContainer}>
             <TileGrid style={styles.grid}>
@@ -113,7 +121,10 @@ export const GameScreen: React.FC = () => {
         </View>
         <View style={styles.keyboardSection}>
           <Keyboard
-            i18n={{ delete: 'delete', validate: 'validate' }}
+            i18n={{
+              delete: `${t('delete')} 🗑️`,
+              validate: `${t('validate')} ✅`,
+            }}
             onInput={onInput}
             onDelete={onDelete}
             onValidate={onValidate}
@@ -127,6 +138,9 @@ export const GameScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
+  },
+  headerSection: {
+    marginTop: 20,
   },
   gridSection: {
     alignItems: 'center',
