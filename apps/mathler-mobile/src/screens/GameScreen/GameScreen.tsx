@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useMemo } from 'react';
-import { Mathler } from 'mathler-core';
+import { Mathler, AttemptStatus } from 'mathler-core';
 import Toast from 'react-native-toast-message';
 import { useTranslation } from 'react-i18next';
 import { ScrollView, SafeAreaView, View, StyleSheet } from 'react-native';
@@ -10,6 +10,7 @@ import { ActiveRow } from './ActiveRow';
 import { CompleteRow } from './CompleteRow';
 import { useTranslateError } from '../../hooks';
 import { IncompleteRow } from './IncompleteRow';
+import { CongratsModal } from './CongratsModal';
 import { Keyboard, TileGrid } from '../../components';
 import { charStatusToTileStatus } from '../../utils';
 
@@ -25,10 +26,12 @@ const mathler = new Mathler({
 export const GameScreen: React.FC = () => {
   const { t, i18n } = useTranslation();
   const translateError = useTranslateError();
-  const [attemptValues, setAttemptValues] = useState(emptyRowValues);
 
+  const [attemptValues, setAttemptValues] = useState(emptyRowValues);
   const [activeRow, setActiveRow] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showCongratsModal, setShowCongratsModal] = useState(true);
+  const [totalAttempts, setTotalAttempts] = useState(0);
 
   const onInput = (value: string) => {
     const newValues = [...attemptValues];
@@ -55,10 +58,15 @@ export const GameScreen: React.FC = () => {
     const inputExpression = attemptValues.join('');
 
     try {
-      mathler.registerAttempt(inputExpression);
+      const result = mathler.registerAttempt(inputExpression);
       setActiveRow(activeRow + 1);
       setActiveIndex(0);
       setAttemptValues(emptyRowValues);
+
+      if (result.status === AttemptStatus.Correct) {
+        setShowCongratsModal(true);
+        setTotalAttempts(mathler.attempts.length);
+      }
     } catch (error) {
       Toast.show({
         type: 'error',
@@ -68,6 +76,16 @@ export const GameScreen: React.FC = () => {
         text2: translateError(error as Error),
       });
     }
+  };
+
+  const restartGame = () => {
+    mathler.restart();
+
+    setAttemptValues(emptyRowValues);
+    setActiveRow(0);
+    setActiveIndex(0);
+    setTotalAttempts(0);
+    setShowCongratsModal(false);
   };
 
   const completeRows = useMemo(
@@ -130,6 +148,11 @@ export const GameScreen: React.FC = () => {
             onValidate={onValidate}
           />
         </View>
+        <CongratsModal
+          isVisible={showCongratsModal}
+          attempts={totalAttempts}
+          onClose={restartGame}
+        />
       </SafeAreaView>
     </ScrollView>
   );

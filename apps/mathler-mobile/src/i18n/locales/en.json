@@ -2,6 +2,7 @@
   "hello": "hello world!",
   "validate": "Validate",
   "delete": "Delete",
+  "startNewGame": "🔄 Start a new game!",
   "errors": {
     "ups": "Ups!, something went wrong 😱",
     "invalidExpressionLength": "Invalid expression length, must be 6 chars",
@@ -9,5 +10,9 @@
     "gameFinishedAttempt": "You can't register more attempts in a game with status: Finished",
     "gameOverAttempt": "You can't register more attempts in a game with status: Game Over",
     "genericError": "Please, try again"
+  },
+  "congratulations": {
+    "title": "Congratulations! 🎉",
+    "message": "You have won the game in {{attempts}} attempts"
   }
 }
