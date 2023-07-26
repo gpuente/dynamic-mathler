@@ -213,8 +213,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   gridContainer: {
-    width: 350,
-    height: 420,
+    width: 300,
+    height: 350,
   },
   grid: {
     width: '100%',
