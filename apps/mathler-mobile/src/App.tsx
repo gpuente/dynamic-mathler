@@ -1,23 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 
-const sum = (a: number, b: number) => a + b;
+import { GameScreen } from './screens';
+import { ThemeProvider } from './providers/theme';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!!!</Text>
-      <Text testID="result">{sum(1, 2)}</Text>
+    <ThemeProvider>
       <StatusBar style="auto" />
-    </View>
+      <GameScreen />
+    </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
