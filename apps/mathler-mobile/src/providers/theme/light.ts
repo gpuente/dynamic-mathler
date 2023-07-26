@@ -26,5 +26,9 @@ export const lightTheme: ThemeValue = {
     grid: {
       background: '#cae1db',
     },
+    keyboard: {
+      background: '#dbe4e9',
+      text: '#000000',
+    },
   },
 };

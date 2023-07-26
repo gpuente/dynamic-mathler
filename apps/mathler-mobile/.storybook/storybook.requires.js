@@ -48,6 +48,8 @@ try {
 const getStories = () => {
   return {
     './src/Button.stories.tsx': require('../src/Button.stories.tsx'),
+    './src/components/Keyboard/Keyboard.stories.tsx': require('../src/components/Keyboard/Keyboard.stories.tsx'),
+    './src/components/KeyboardButton/KeyboardButton.stories.tsx': require('../src/components/KeyboardButton/KeyboardButton.stories.tsx'),
     './src/components/TileGrid/TileGrid.stories.tsx': require('../src/components/TileGrid/TileGrid.stories.tsx'),
     './src/components/TileInput/TileInput.stories.tsx': require('../src/components/TileInput/TileInput.stories.tsx'),
     './src/components/TileRow/TileRow.stories.tsx': require('../src/components/TileRow/TileRow.stories.tsx'),

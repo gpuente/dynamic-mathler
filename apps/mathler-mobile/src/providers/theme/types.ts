@@ -29,5 +29,9 @@ export interface ThemeValue {
     grid: {
       background: string;
     };
+    keyboard: {
+      background: string;
+      text: string;
+    };
   };
 }
