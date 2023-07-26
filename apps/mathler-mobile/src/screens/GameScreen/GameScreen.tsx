@@ -7,6 +7,7 @@ import { ScrollView, SafeAreaView, View, StyleSheet } from 'react-native';
 
 import { TopBar } from './TopBar';
 import { ActiveRow } from './ActiveRow';
+import { DebugModal } from './DebugModal';
 import { CompleteRow } from './CompleteRow';
 import { useTranslateError } from '../../hooks';
 import { IncompleteRow } from './IncompleteRow';
@@ -15,6 +16,7 @@ import { GameOverModal } from './GameOverModal';
 import { InstructionsModal } from './InstructionsModal';
 import { Keyboard, TileGrid } from '../../components';
 import { charStatusToTileStatus } from '../../utils';
+import { useTheme } from '../../providers/theme';
 
 const MAX_ATTEMPTS = 6;
 const EXPRESSION_LENGTH = 6;
@@ -22,19 +24,21 @@ const emptyRowValues = [...Array(EXPRESSION_LENGTH)].map(() => '');
 
 const mathler = new Mathler({
   maxAttempts: MAX_ATTEMPTS,
-  calculation: '12/2+1',
 });
 
 export const GameScreen: React.FC = () => {
   const { t, i18n } = useTranslation();
   const translateError = useTranslateError();
+  const { palette } = useTheme();
 
+  const [expectedResult, setExpectedResult] = useState(mathler.expectedResult);
   const [attemptValues, setAttemptValues] = useState(emptyRowValues);
   const [activeRow, setActiveRow] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [showCongratsModal, setShowCongratsModal] = useState(false);
   const [showGameOverModal, setGameOverModal] = useState(false);
   const [showInstructionsModal, setShowInstructionsModal] = useState(false);
+  const [showDebugModal, setShowDebugModal] = useState(false);
   const [totalAttempts, setTotalAttempts] = useState(0);
 
   const onInput = (value: string) => {
@@ -90,6 +94,7 @@ export const GameScreen: React.FC = () => {
   const restartGame = () => {
     mathler.restart();
 
+    setExpectedResult(mathler.expectedResult);
     setAttemptValues(emptyRowValues);
     setActiveRow(0);
     setActiveIndex(0);
@@ -131,12 +136,14 @@ export const GameScreen: React.FC = () => {
   }, [activeRow]);
 
   return (
-    <ScrollView>
-      <SafeAreaView style={styles.container}>
+    <ScrollView style={{ backgroundColor: palette.background }}>
+      <SafeAreaView>
         <View style={styles.headerSection}>
           <TopBar
-            result={mathler.expectedResult}
+            result={expectedResult}
             onInfoPress={() => setShowInstructionsModal(true)}
+            onSecretPress={() => setShowDebugModal(true)}
+            restartGame={restartGame}
           />
         </View>
         <View style={styles.gridSection}>
@@ -179,6 +186,11 @@ export const GameScreen: React.FC = () => {
           isVisible={showInstructionsModal}
           onClose={() => setShowInstructionsModal(false)}
         />
+        <DebugModal
+          isVisible={showDebugModal}
+          expression={mathler.calculation}
+          onClose={() => setShowDebugModal(false)}
+        />
       </SafeAreaView>
     </ScrollView>
   );
@@ -187,6 +199,7 @@ export const GameScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
+    backgroundColor: 'red',
   },
   headerSection: {
     marginTop: 20,
