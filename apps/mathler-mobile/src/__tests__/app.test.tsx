@@ -4,10 +4,21 @@ import { render, screen } from '@testing-library/react-native';
 import App from '../App';
 
 describe('<App />', () => {
-  it('should return 3 as result', async () => {
+  it('should render game screen', async () => {
     render(<App />);
-    const result = await screen.findByTestId('result');
+    const result = await screen.findByTestId('game-screen');
+    expect(result).toBeTruthy();
+  });
 
-    expect(result).toHaveTextContent('3');
+  it('should render top-bar', async () => {
+    render(<App />);
+    const result = await screen.findByTestId('top-bar');
+    expect(result).toBeTruthy();
+  });
+
+  it('should render keyboard', async () => {
+    render(<App />);
+    const result = await screen.findByTestId('keyboard');
+    expect(result).toBeTruthy();
   });
 });

@@ -1,6 +1,6 @@
 # Dynamic Mathler
 
-![](https://raw.githubusercontent.com/gpuente/dynamic-mathler/develop/demo-app.gif)
+![](https://raw.githubusercontent.com/gpuente/dynamic-mathler/develop/demo-mathler.gif)
 
 ## How to run this project:
 If you have an Android device, the easiest way to run this project is by installing the Preview Build (.apk) on your device. You can download the latest build from this link. Just follow the instructions on the build webpage.
@@ -41,6 +41,8 @@ Here are listed some of the features implemented in this project:
 - Finish Modal: If you finish the game in <= 6 attempts, you will get a Congratulations modal (with a little surprise).
 - Game Over Modal: If you can't finish the game in <= 6 attempts, then you will get the Game Over modal (from here you can start a new game).
 
+## Github Project
+You can check all the tasks, issues and development process in the Github project: https://github.com/users/gpuente/projects/2
 
 ## Monorepo:
 This project is structured as a monorepo (using TurboRepo). This makes it easy to develop different components that share business logic. One example is the mathler-core package (it contains mathler game logic), which is being used by the app mathler-mobile. If you want to build a web version of the game, you just need to create a new app and integrate the mathler-core lib.
