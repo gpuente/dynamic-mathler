@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useMemo } from 'react';
-import { Mathler, AttemptStatus } from 'mathler-core';
+import { Mathler, AttemptStatus, GameStatus } from 'mathler-core';
 import Toast from 'react-native-toast-message';
 import { useTranslation } from 'react-i18next';
 import { ScrollView, SafeAreaView, View, StyleSheet } from 'react-native';
@@ -11,6 +11,7 @@ import { CompleteRow } from './CompleteRow';
 import { useTranslateError } from '../../hooks';
 import { IncompleteRow } from './IncompleteRow';
 import { CongratsModal } from './CongratsModal';
+import { GameOverModal } from './GameOverModal';
 import { Keyboard, TileGrid } from '../../components';
 import { charStatusToTileStatus } from '../../utils';
 
@@ -31,6 +32,7 @@ export const GameScreen: React.FC = () => {
   const [activeRow, setActiveRow] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [showCongratsModal, setShowCongratsModal] = useState(false);
+  const [showGameOverModal, setGameOverModal] = useState(false);
   const [totalAttempts, setTotalAttempts] = useState(0);
 
   const onInput = (value: string) => {
@@ -66,6 +68,11 @@ export const GameScreen: React.FC = () => {
       if (result.status === AttemptStatus.Correct) {
         setShowCongratsModal(true);
         setTotalAttempts(mathler.attempts.length);
+        return;
+      }
+
+      if (mathler.status === GameStatus.GameOver) {
+        setGameOverModal(true);
       }
     } catch (error) {
       Toast.show({
@@ -86,6 +93,7 @@ export const GameScreen: React.FC = () => {
     setActiveIndex(0);
     setTotalAttempts(0);
     setShowCongratsModal(false);
+    setGameOverModal(false);
   };
 
   const completeRows = useMemo(
@@ -155,6 +163,11 @@ export const GameScreen: React.FC = () => {
         <CongratsModal
           isVisible={showCongratsModal}
           attempts={totalAttempts}
+          onClose={restartGame}
+        />
+        <GameOverModal
+          isVisible={showGameOverModal}
+          expression={mathler.calculation}
           onClose={restartGame}
         />
       </SafeAreaView>

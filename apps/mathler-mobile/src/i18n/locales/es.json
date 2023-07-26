@@ -14,5 +14,9 @@
   "congratulations": {
     "title": "Felicitaciones! 🎉",
     "message": "Has ganado el juego en {{attempts}} intentos"
+  },
+  "gameOver": {
+    "title": "Game Over! 😢",
+    "message": "Has perdido el juego, la expresión era: {{expression}}"
   }
 }
