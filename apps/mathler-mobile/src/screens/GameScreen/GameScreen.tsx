@@ -27,7 +27,7 @@ const mathler = new Mathler({
 });
 
 export const GameScreen: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const translateError = useTranslateError();
   const { palette } = useTheme();
 
@@ -52,7 +52,6 @@ export const GameScreen: React.FC = () => {
   };
 
   const onDelete = () => {
-    i18n.changeLanguage('es');
     const newValues = [...attemptValues];
     newValues[activeIndex] = '';
     setAttemptValues(newValues);
