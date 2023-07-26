@@ -2,10 +2,18 @@ import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { useTheme } from '../../providers/theme';
 
+export type TileStatus =
+  | 'idle'
+  | 'active'
+  | 'error'
+  | 'warning'
+  | 'success'
+  | 'empty';
+
 export interface TileInputProps {
   value?: string;
-  status?: 'idle' | 'active' | 'error' | 'warning' | 'success' | 'empty';
-  onPress: () => void;
+  status?: TileStatus;
+  onPress?: () => void;
   disabled?: boolean;
 }
 

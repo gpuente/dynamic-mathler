@@ -33,18 +33,44 @@ export const Keyboard: React.FC<KeyboardProps> = (props) => {
       </View>
       <View style={styles.row}>
         <KeyboardButton
-          value="delete"
-          style={styles.lgButton}
-          textProps={{ style: styles.lgButtonText }}
-          text={i18n.delete}
-          onPress={onDelete}
+          text="+"
+          value="+"
+          style={styles.mdButton}
+          onPress={() => onInput('+')}
         />
+        <KeyboardButton
+          text="-"
+          value="-"
+          style={styles.mdButton}
+          onPress={() => onInput('-')}
+        />
+        <KeyboardButton
+          text="*"
+          value="*"
+          style={styles.mdButton}
+          onPress={() => onInput('*')}
+        />
+        <KeyboardButton
+          text="/"
+          value="/"
+          style={styles.mdButton}
+          onPress={() => onInput('/')}
+        />
+      </View>
+      <View style={styles.row}>
         <KeyboardButton
           value="validate"
           style={styles.lgButton}
           textProps={{ style: styles.lgButtonText }}
           text={i18n.validate}
           onPress={onValidate}
+        />
+        <KeyboardButton
+          value="delete"
+          style={styles.lgButton}
+          textProps={{ style: styles.lgButtonText }}
+          text={i18n.delete}
+          onPress={onDelete}
         />
       </View>
     </View>
@@ -56,6 +82,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     width: 300,
+  },
+  mdButton: {
+    width: 64,
   },
   lgButton: {
     display: 'flex',
