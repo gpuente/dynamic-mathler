@@ -3,7 +3,10 @@
 ![](https://raw.githubusercontent.com/gpuente/dynamic-mathler/develop/demo-mathler.gif)
 
 ## How to run this project:
-If you have an Android device, the easiest way to run this project is by installing the Preview Build (.apk) on your device. You can download the latest build from this link. Just follow the instructions on the build webpage.
+If you have an Android device, the easiest way to run this project is by installing the Preview Build (.apk) on your device. You can download the latest build from this link:
+- https://expo.dev/accounts/dev.gpuente/projects/mathler-mobile/builds/08823841-dfde-4a20-bebf-b99f99284e90
+
+Just follow the instructions on the build webpage.
 
 Alternatively, you can run this project on your machine using an Android or iOS emulator. Follow these instructions: https://reactnative.dev/docs/environment-setup to set up React Native properly on your machine before continuing with the project setup instructions.
 
