@@ -4,6 +4,9 @@ export const darkTheme: ThemeValue = {
   theme: Theme.Dark,
   palette: {
     primary: 'blue',
+    button: {
+      primary: '#66ccff',
+    },
     tile: {
       background: {
         idle: '#feffff',

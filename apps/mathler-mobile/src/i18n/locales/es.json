@@ -1,0 +1,13 @@
+{
+  "hello": "hola mundo!",
+  "validate": "Validar",
+  "delete": "Eliminar",
+  "errors": {
+    "ups": "Ups! Algo salió mal 😱",
+    "invalidExpressionLength": "Expresión inválida, debe tener 6 caracteres",
+    "invalidExpression": "Expresión inválida",
+    "gameFinishedAttempt": "No puedes registrar más intentos en un juego con estado: Finalizado",
+    "gameOverAttempt": "No puedes registrar más intentos en un juego con estado: Perdido",
+    "genericError": "Por favor, intenta nuevamente"
+  }
+}

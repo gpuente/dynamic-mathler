@@ -1,0 +1,13 @@
+{
+  "hello": "hello world!",
+  "validate": "Validate",
+  "delete": "Delete",
+  "errors": {
+    "ups": "Ups!, something went wrong 😱",
+    "invalidExpressionLength": "Invalid expression length, must be 6 chars",
+    "invalidExpression": "Invalid expression",
+    "gameFinishedAttempt": "You can't register more attempts in a game with status: Finished",
+    "gameOverAttempt": "You can't register more attempts in a game with status: Game Over",
+    "genericError": "Please, try again"
+  }
+}
