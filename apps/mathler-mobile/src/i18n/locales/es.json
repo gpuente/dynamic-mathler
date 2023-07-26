@@ -2,6 +2,7 @@
   "hello": "hola mundo!",
   "validate": "Validar",
   "delete": "Eliminar",
+  "startNewGame": "🔄 Comenzar un juego nuevo!",
   "errors": {
     "ups": "Ups! Algo salió mal 😱",
     "invalidExpressionLength": "Expresión inválida, debe tener 6 caracteres",
@@ -9,5 +10,9 @@
     "gameFinishedAttempt": "No puedes registrar más intentos en un juego con estado: Finalizado",
     "gameOverAttempt": "No puedes registrar más intentos en un juego con estado: Perdido",
     "genericError": "Por favor, intenta nuevamente"
+  },
+  "congratulations": {
+    "title": "Felicitaciones! 🎉",
+    "message": "Has ganado el juego en {{attempts}} intentos"
   }
 }
