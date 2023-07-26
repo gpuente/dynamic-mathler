@@ -1,6 +1,6 @@
 # Dynamic Mathler
 
-![](https://raw.githubusercontent.com/gpuente/dynamic-mathler/develop/demo.gif)
+![](https://raw.githubusercontent.com/gpuente/dynamic-mathler/develop/demo-app.gif)
 
 ## How to run this project:
 If you have an Android device, the easiest way to run this project is by installing the Preview Build (.apk) on your device. You can download the latest build from this link. Just follow the instructions on the build webpage.
@@ -8,9 +8,9 @@ If you have an Android device, the easiest way to run this project is by install
 Alternatively, you can run this project on your machine using an Android or iOS emulator. Follow these instructions: https://reactnative.dev/docs/environment-setup to set up React Native properly on your machine before continuing with the project setup instructions.
 
 Now that you have React Native installed and configured on your machine (along with the simulators), let's run this project:
-- Clone this repo on your machine: `git clone https://github.com/gpuente/dynamic-mathler.git``
-- Install the project dependencies: `yarn install``
-- That's it! Now you can run the project by executing: `yarn workspace mathler-mobile start``. This command will start the app in development - mode (from here you can follow the instructions from the terminal to launch the app in an iOS or Android simulator).
+- Clone this repo on your machine: `git clone https://github.com/gpuente/dynamic-mathler.git`
+- Install the project dependencies: `yarn install`
+- That's it! Now you can run the project by executing: `yarn workspace mathler-mobile start`. This command will start the app in development - mode (from here you can follow the instructions from the terminal to launch the app in an iOS or Android simulator).
 
 ## CI
 This project is configured with Github Actions and EAS. Every time you push a change to the master branch, the CI triggers a new Android Preview build (that you can download from Expo). You can check the Github action config here: https://github.com/gpuente/dynamic-mathler/blob/master/.github/workflows/preview.yml
