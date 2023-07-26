@@ -1,7 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useMemo } from 'react';
-import { ScrollView, SafeAreaView, View, StyleSheet } from 'react-native';
 import { Mathler } from 'mathler-core';
+import Toast from 'react-native-toast-message';
+import { ScrollView, SafeAreaView, View, StyleSheet } from 'react-native';
 
 import { ActiveRow } from './ActiveRow';
 import { CompleteRow } from './CompleteRow';
@@ -53,7 +54,13 @@ export const GameScreen: React.FC = () => {
       setActiveIndex(0);
       setAttemptValues(emptyRowValues);
     } catch (error) {
-      // TODO: handle error
+      Toast.show({
+        type: 'error',
+        visibilityTime: 6000,
+        topOffset: 60,
+        text1: 'Ups!, something went wrong 😱',
+        text2: (error as Error).message,
+      });
     }
   };
 
