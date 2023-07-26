@@ -41,7 +41,7 @@ export const TopBar: React.FC<TopBarProps> = (props) => {
   };
 
   return (
-    <View>
+    <View testID="top-bar">
       <View style={styles.container}>
         <TouchableOpacity onPress={toggleTheme}>
           <Text style={styles.iconButton}>
