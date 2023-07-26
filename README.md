@@ -4,7 +4,7 @@
 
 ## How to run this project:
 If you have an Android device, the easiest way to run this project is by installing the Preview Build (.apk) on your device. You can download the latest build from this link:
-- https://expo.dev/accounts/dev.gpuente/projects/mathler-mobile/builds/08823841-dfde-4a20-bebf-b99f99284e90
+- https://expo.dev/accounts/dev.gpuente/projects/mathler-mobile/builds/26790b55-4f6b-442b-b40f-d9e8b214a043
 
 Just follow the instructions on the build webpage.
 
