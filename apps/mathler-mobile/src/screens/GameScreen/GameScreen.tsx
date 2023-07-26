@@ -136,7 +136,10 @@ export const GameScreen: React.FC = () => {
   }, [activeRow]);
 
   return (
-    <ScrollView style={{ backgroundColor: palette.background }}>
+    <ScrollView
+      style={{ backgroundColor: palette.background }}
+      testID="game-screen"
+    >
       <SafeAreaView>
         <View style={styles.headerSection}>
           <TopBar

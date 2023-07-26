@@ -16,7 +16,7 @@ export const Keyboard: React.FC<KeyboardProps> = (props) => {
   const { onDelete, onInput, onValidate, i18n } = props;
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="keyboard">
       <View style={styles.row}>
         <KeyboardButton value="1" text="1" onPress={() => onInput('1')} />
         <KeyboardButton value="2" text="2" onPress={() => onInput('2')} />
