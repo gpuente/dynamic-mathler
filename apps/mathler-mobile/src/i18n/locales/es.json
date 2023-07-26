@@ -3,6 +3,9 @@
   "validate": "Validar",
   "delete": "Eliminar",
   "startNewGame": "🔄 Comenzar un juego nuevo!",
+  "header": {
+    "title": "🎲 Encuantra la expresión oculta que da {{result}}"
+  },
   "errors": {
     "ups": "Ups! Algo salió mal 😱",
     "invalidExpressionLength": "Expresión inválida, debe tener 6 caracteres",
@@ -18,5 +21,14 @@
   "gameOver": {
     "title": "Game Over! 😢",
     "message": "Has perdido el juego, la expresión era: {{expression}}"
+  },
+  "instructions": {
+    "title": "Cómo jugar a Mathler",
+    "p1": "Mathler es un juego basado en matemáticas inspirado en Wordle. Requiere que uses las operaciones +, -, *, y /, así como los dígitos del 0 al 9, para crear una ecuación que sea igual a la respuesta proporcionada.\nA diferencia de Wordle, obtienes la respuesta de antemano.",
+    "p2": "¡Intenta encontrar el cálculo oculto en 6 intentos!",
+    "p3": "Después de cada intento, el color de las casillas cambiará para mostrar qué tan cerca estás de la solución.\n - Las casillas verdes están en el lugar correcto.\n - Las casillas amarillas están en la solución, pero en un lugar diferente.\n - Las casillas rojas no están en la solución.",
+    "p4": "Reglas adicionales:",
+    "p5": " - Los números y operadores pueden aparecer varias veces.\n - Calcula / o * antes que - o + (orden de operaciones).\n - Se aceptan soluciones conmutativas, por ejemplo, 20+7+3 y 3+7+20.\n - Las soluciones conmutativas se reorganizarán automáticamente para mostrar la solución exacta.",
+    "p6": "Un ejemplo de un juego ganador para el resultado 7"
   }
 }

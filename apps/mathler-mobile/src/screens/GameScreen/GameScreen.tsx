@@ -12,6 +12,7 @@ import { useTranslateError } from '../../hooks';
 import { IncompleteRow } from './IncompleteRow';
 import { CongratsModal } from './CongratsModal';
 import { GameOverModal } from './GameOverModal';
+import { InstructionsModal } from './InstructionsModal';
 import { Keyboard, TileGrid } from '../../components';
 import { charStatusToTileStatus } from '../../utils';
 
@@ -33,6 +34,7 @@ export const GameScreen: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [showCongratsModal, setShowCongratsModal] = useState(false);
   const [showGameOverModal, setGameOverModal] = useState(false);
+  const [showInstructionsModal, setShowInstructionsModal] = useState(false);
   const [totalAttempts, setTotalAttempts] = useState(0);
 
   const onInput = (value: string) => {
@@ -132,7 +134,10 @@ export const GameScreen: React.FC = () => {
     <ScrollView>
       <SafeAreaView style={styles.container}>
         <View style={styles.headerSection}>
-          <TopBar />
+          <TopBar
+            result={mathler.expectedResult}
+            onInfoPress={() => setShowInstructionsModal(true)}
+          />
         </View>
         <View style={styles.gridSection}>
           <View style={styles.gridContainer}>
@@ -169,6 +174,10 @@ export const GameScreen: React.FC = () => {
           isVisible={showGameOverModal}
           expression={mathler.calculation}
           onClose={restartGame}
+        />
+        <InstructionsModal
+          isVisible={showInstructionsModal}
+          onClose={() => setShowInstructionsModal(false)}
         />
       </SafeAreaView>
     </ScrollView>
