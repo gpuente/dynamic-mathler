@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
   tileContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     borderRadius: 10,
     overflow: 'hidden',
   },
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   shadow: {
-    height: 60,
+    height: 50,
     borderRadius: 10,
   },
 });

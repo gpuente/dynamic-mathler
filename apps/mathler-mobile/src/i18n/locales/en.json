@@ -2,6 +2,10 @@
   "hello": "hello world!",
   "validate": "Validate",
   "delete": "Delete",
+  "startNewGame": "🔄 Start a new game!",
+  "header": {
+    "title": "🎲 Guess the expression that equals {{result}}"
+  },
   "errors": {
     "ups": "Ups!, something went wrong 😱",
     "invalidExpressionLength": "Invalid expression length, must be 6 chars",
@@ -9,5 +13,26 @@
     "gameFinishedAttempt": "You can't register more attempts in a game with status: Finished",
     "gameOverAttempt": "You can't register more attempts in a game with status: Game Over",
     "genericError": "Please, try again"
+  },
+  "congratulations": {
+    "title": "Congratulations! 🎉",
+    "message": "You have won the game in {{attempts}} attempts"
+  },
+  "gameOver": {
+    "title": "Game Over! 😢",
+    "message": "You have lost the game, the expression was: {{expression}}"
+  },
+  "instructions": {
+    "title": "How to play Mathler",
+    "p1": "Mathler is a math-based game inspired by Wordle. It requires you to use the operations +, -, *, and / as well as the digits 0-9 to create an equation that equals the answer given.\nUnlike Wordle, you get the answer in advance.",
+    "p2": "Try to find the hidden calculation in 6 guesses!",
+    "p3": "After each guess, the color of the tiles will change to show how close you are to the solution.\n - Green are in the correct place.\n - Yellow are in the solution, but in a different place.\n - Red are not in the solution.",
+    "p4": "Additional rules:",
+    "p5": " - Numbers and operators can appear multiple times.\n - Calculate / or * before - or + (order of operations).\n - Commutative solutions are accepted, for example 20+7+3 and 3+7+20.\n - Commutative solutions will be automatically rearranged to the exact solution",
+    "p6": "An example of a winning game of 7"
+  },
+  "debugModal": {
+    "title": "The hidden expression is: {{expression}}",
+    "close": "❌ Close this modal"
   }
 }

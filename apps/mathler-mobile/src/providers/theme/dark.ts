@@ -4,6 +4,11 @@ export const darkTheme: ThemeValue = {
   theme: Theme.Dark,
   palette: {
     primary: 'blue',
+    background: '#000000',
+    text: '#ffffff',
+    modal: {
+      background: '#ffffff',
+    },
     button: {
       primary: '#66ccff',
     },

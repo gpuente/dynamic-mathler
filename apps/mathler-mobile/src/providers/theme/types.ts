@@ -7,6 +7,11 @@ export interface ThemeValue {
   theme: Theme;
   palette: {
     primary: string;
+    background: string;
+    text: string;
+    modal: {
+      background: string;
+    };
     button: {
       primary: string;
     };
